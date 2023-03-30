@@ -28,12 +28,14 @@ public class ARBuildingPlacement : MonoBehaviour
                 buildingInstance.transform.localScale = buildingData.scale;
                 buildingInstance.GetComponent<MeshRenderer>().material.color = buildingData.color;
 
+                /*
                 // appliquer une transformation inverse pour avoir la position relative au planGameObject
                 Vector3 hitPosition = hits[0].pose.position;
                 Quaternion hitRotation = hits[0].pose.rotation;
                 Vector3 relativePosition = Quaternion.Inverse(planGameObject.transform.rotation) * (hitPosition - planGameObject.transform.position);
                 buildingInstance.transform.position = relativePosition;
                 buildingInstance.transform.rotation = hitRotation;
+                */
             }
         }
     }
