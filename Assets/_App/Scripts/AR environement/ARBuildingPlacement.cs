@@ -18,7 +18,7 @@ public class ARBuildingPlacement : MonoBehaviour
     }
     void Update()
     {
-        if (Input.touchCount == 1 && Input.GetTouch(0).phase == TouchPhase.Began /*&& !EventSystem.current.IsPointerOverGameObject(Input.GetTouch(0).fingerId)*/)
+        if (Input.touchCount == 1 && Input.GetTouch(0).phase == TouchPhase.Began && !EventSystem.current.IsPointerOverGameObject(Input.GetTouch(0).fingerId))
         {
             Vector2 touchPosition = Input.GetTouch(0).position;
             List<ARRaycastHit> hits = new List<ARRaycastHit>();
@@ -27,15 +27,6 @@ public class ARBuildingPlacement : MonoBehaviour
                 buildingInstance = Instantiate(buildingData.batimentPrefab.gameObject, hits[0].pose.position, hits[0].pose.rotation);
                 buildingInstance.transform.localScale = buildingData.scale;
                 buildingInstance.GetComponent<MeshRenderer>().material.color = buildingData.color;
-
-                /*
-                // appliquer une transformation inverse pour avoir la position relative au planGameObject
-                Vector3 hitPosition = hits[0].pose.position;
-                Quaternion hitRotation = hits[0].pose.rotation;
-                Vector3 relativePosition = Quaternion.Inverse(planGameObject.transform.rotation) * (hitPosition - planGameObject.transform.position);
-                buildingInstance.transform.position = relativePosition;
-                buildingInstance.transform.rotation = hitRotation;
-                */
             }
         }
     }

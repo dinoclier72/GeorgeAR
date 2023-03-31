@@ -9,10 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 964c3a7ec7d71fa4cba60d4b3dfce58b, type: 3}
-  m_Name: testBuilding
+  m_Script: {fileID: 11500000, guid: 5c40128935defd04e8c43b54fb84cde9, type: 3}
+  m_Name: test
   m_EditorClassIdentifier: 
+  prefab: {fileID: 7980185419952470946, guid: 2df08a16643a30c40a6871b7b19f35da, type: 3}
+  sprite: {fileID: 21300000, guid: ea6fa29a4c3220b489f63d486a365c75, type: 3}
   batimentPrefab: {fileID: 5552599882417845769, guid: 726f17e168c4f7f4f9c0c6bfceef89c7,
     type: 3}
-  scale: {x: 0.1, y: 0.1, z: 0.1}
-  color: {r: 0.40275854, g: 0.5283019, b: 0.21132074, a: 0}
