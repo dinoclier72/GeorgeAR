@@ -23,10 +23,13 @@ public class SaveManager : MonoBehaviour
         List<BuildingData> buildings = new List<BuildingData>();
         Transform george = map.Find("George");
         foreach(Transform child in map){
-            BuildingData building = new BuildingData(child.GetComponent<spriteInfo>().batimentPrefab, child.position,child.localScale, Color.white);
+            BuildingData building = new BuildingData();
+            building.batimentPrefab = child.GetComponent<spriteInfo>().batimentPrefab;
+            building.position = child.position;
+            building.scale = child.localScale;
+            building.color = Color.white;
             buildings.Add(building);
         }
-        Debug.Log(buildings.Count);
         SaveData saveData = new SaveData(buildings, Vector3.zero);
         Debug.Log(JsonUtility.ToJson(saveData));
     }
@@ -43,6 +46,7 @@ class SaveData{
     }
 
     public String ToJson(){
+        Debug.Log(buildings.Count);
         return JsonUtility.ToJson(this);
     }
 }
