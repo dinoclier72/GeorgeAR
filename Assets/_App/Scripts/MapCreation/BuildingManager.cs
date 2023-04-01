@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class BuildingManager : MonoBehaviour
 {
     [SerializeField]protected BuildingTypeSO activeBuildingType;
     [SerializeField]private Transform parentObject;
+    [SerializeField]private Image buildingImage;
     private void Update()
     {
         //place le batiment sur le terrain
@@ -28,7 +30,8 @@ public class BuildingManager : MonoBehaviour
 
     protected void placeBuilding(){
         Vector2 mousePosition = Input.mousePosition;
-        Transform newBulding = Instantiate(activeBuildingType.prefab, mousePosition, Quaternion.identity,parentObject);
+        Image newBulding = Instantiate(buildingImage, mousePosition, Quaternion.identity,parentObject);
+        newBulding.sprite = activeBuildingType.sprite;
         newBulding.gameObject.AddComponent<spriteInfo>().batimentPrefab = activeBuildingType.batimentPrefab;
     }
 }

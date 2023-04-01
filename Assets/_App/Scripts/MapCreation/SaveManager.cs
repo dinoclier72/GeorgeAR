@@ -3,20 +3,26 @@ using System.Collections.Generic;
 using System.IO;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SaveManager : MonoBehaviour
 {
     [SerializeField]private Transform parent;
     [SerializeField]private TMP_InputField inputField;
-    // Update is called once per frame
-    void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.F12)){
-            SaveData save = JsonUtility.FromJson<SaveData>(Save());
-        }
-    }
+    [SerializeField]private Button saveButton;
 
-    String Save(){
+    void Awake(){
+        saveButton.onClick.AddListener(Save);
+    }
+    // // seulement pour tester le chargement
+    // void Update()
+    // {
+    //     if(Input.GetKeyDown(KeyCode.F12)){
+    //         SaveData save = JsonUtility.FromJson<SaveData>(Save());
+    //     }
+    // }
+
+    void Save(){
         List<BuildingData> buildings = new List<BuildingData>();
         Transform george = parent.Find("George");
         //TODO: save george
@@ -32,7 +38,6 @@ public class SaveManager : MonoBehaviour
         String json = saveData.ToJson();
         String SaveName = inputField.text;
         File.WriteAllText(Application.dataPath + "/_App/saves/"+SaveName+".json", json);
-        return json;
     }
 }
 

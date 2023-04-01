@@ -6,7 +6,6 @@ using UnityEngine;
 public class BuildingTypeSO : ScriptableObject
 {
     //reference du batiment
-    public Transform prefab;
     public Sprite sprite;
     public Batiment batimentPrefab;
 }
