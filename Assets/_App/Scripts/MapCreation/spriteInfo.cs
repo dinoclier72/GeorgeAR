@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class spriteInfo : MonoBehaviour
 {
-    public Batiment batimentPrefab;
+    public Transform batimentPrefab;
 }

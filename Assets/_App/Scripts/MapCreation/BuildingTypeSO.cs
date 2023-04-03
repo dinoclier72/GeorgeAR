@@ -7,5 +7,5 @@ public class BuildingTypeSO : ScriptableObject
 {
     //reference du batiment
     public Sprite sprite;
-    public Batiment batimentPrefab;
+    public Transform batimentPrefab;
 }

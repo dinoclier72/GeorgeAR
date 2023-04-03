@@ -10,9 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5c40128935defd04e8c43b54fb84cde9, type: 3}
-  m_Name: test
+  m_Name: George
   m_EditorClassIdentifier: 
-  prefab: {fileID: 7980185419952470946, guid: 2df08a16643a30c40a6871b7b19f35da, type: 3}
-  sprite: {fileID: 21300000, guid: ea6fa29a4c3220b489f63d486a365c75, type: 3}
-  batimentPrefab: {fileID: 5552599882417845769, guid: 726f17e168c4f7f4f9c0c6bfceef89c7,
+  sprite: {fileID: 21300000, guid: ae5af7222ece07542bf1d4bdb7a60f92, type: 3}
+  batimentPrefab: {fileID: 9078784240312777558, guid: 7b5caee49a088a94384fa933ce4b9ad9,
     type: 3}

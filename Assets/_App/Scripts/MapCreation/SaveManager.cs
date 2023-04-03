@@ -24,17 +24,25 @@ public class SaveManager : MonoBehaviour
 
     void Save(){
         List<BuildingData> buildings = new List<BuildingData>();
-        Transform george = parent.Find("George");
+        GeorgeData georgeData = new GeorgeData();;
         //TODO: save george
         foreach(Transform child in parent){
-            BuildingData building = new BuildingData();
-            building.batimentPrefab = child.GetComponent<spriteInfo>().batimentPrefab;
-            building.position = new Vector3(child.position.x,0,child.position.y);
-            building.scale = child.localScale;
-            building.color = Color.white;
-            buildings.Add(building);
+            if(child.tag == "batiment"){
+                BuildingData building = new BuildingData();
+                building.batimentPrefab = child.GetComponent<spriteInfo>().batimentPrefab.GetComponent<Batiment>();
+                building.position = new Vector3(child.position.x,0,child.position.y);
+                building.scale = child.localScale;
+                building.color = Color.white;
+                buildings.Add(building);
+            }
+            if(child.tag == "George"){
+                georgeData.georgePrefab = child.GetComponent<spriteInfo>().batimentPrefab.GetComponent<George>();
+                georgeData.position = new Vector3(child.position.x,0,child.position.y);
+                georgeData.scale = child.localScale;
+                georgeData.color = Color.white;
+            }
         }
-        SaveData saveData = new SaveData(buildings, Vector3.zero);
+        SaveData saveData = new SaveData(buildings, georgeData);
         String json = saveData.ToJson();
         String SaveName = inputField.text;
         File.WriteAllText(Application.dataPath + "/_App/saves/"+SaveName+".json", json);
@@ -44,11 +52,11 @@ public class SaveManager : MonoBehaviour
 [Serializable]
 public class SaveData{
     public List<BuildingData> buildings;
-    public Vector3 georgePosition;
+    public GeorgeData georgeData;
 
-    public SaveData(List<BuildingData> buildings, Vector3 georgePosition){
+    public SaveData(List<BuildingData> buildings, GeorgeData georgeData){
         this.buildings = buildings;
-        this.georgePosition = georgePosition;
+        this.georgeData = georgeData;
     }
 
     public String ToJson(){
