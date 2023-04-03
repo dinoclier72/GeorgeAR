@@ -5,9 +5,18 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
+  - enabled: 0
+    path: Assets/_App/Scenes/MainMenu.unity
+    guid: 442b2eeeedd458c47a3a54337a1272d6
   - enabled: 1
-    path: Assets/_App/Scenes/Basic test.unity
+    path: Assets/_App/Scenes/Game.unity
     guid: f4b4395e0f6b6de4b90ceef222619b07
+  - enabled: 0
+    path: Assets/_App/Scenes/SaveLoading.unity
+    guid: 5b958d23ce60f98418ea2cbe835a9a81
+  - enabled: 0
+    path: Assets/_App/Scenes/MapCreator.unity
+    guid: ad22208142636c944a6f489cdf900524
   m_configObjects:
     UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: d2bfb9196c978044e882c5a4333c4289,
       type: 2}

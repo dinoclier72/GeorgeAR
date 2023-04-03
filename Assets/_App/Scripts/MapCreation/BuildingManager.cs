@@ -15,9 +15,10 @@ public class BuildingManager : MonoBehaviour
     private void Update()
     {
         //place le batiment sur le terrain
-       if(Input.GetMouseButtonDown(0) && activeBuildingType != null && !EventSystem.current.IsPointerOverGameObject())
+        if(Input.touchCount > 0 && activeBuildingType != null && !EventSystem.current.IsPointerOverGameObject(Input.GetTouch(0).fingerId))
         {
-            placeBuilding();
+            Vector2 touchPosition = Input.GetTouch(0).position;
+            placeBuilding(touchPosition);
         }
     }
     public void SetActiveBuildingType(BuildingTypeSO buildingTypeSO)
@@ -31,14 +32,13 @@ public class BuildingManager : MonoBehaviour
         return activeBuildingType;
     }
 
-    protected void placeBuilding(){
-        Vector2 mousePosition = Input.mousePosition;
-        if(isImageInMap(mousePosition,map,buildingImage,canvas) && isBuildingAllowed(activeBuildingType,mousePosition)){
+    protected void placeBuilding(Vector2 position){
+        if(isImageInMap(position,map,buildingImage,canvas) && isBuildingAllowed(activeBuildingType,position)){
             Image newBulding;
             if(activeBuildingType.batimentPrefab.tag == "George" && georgeImage != null){
                 Destroy(georgeImage.gameObject);
             }
-            newBulding = Instantiate(buildingImage, mousePosition, Quaternion.identity,parentObject);
+            newBulding = Instantiate(buildingImage, position, Quaternion.identity,parentObject);
             newBulding.sprite = activeBuildingType.sprite;
             newBulding.gameObject.tag = activeBuildingType.batimentPrefab.gameObject.tag;
             newBulding.gameObject.AddComponent<spriteInfo>().batimentPrefab = activeBuildingType.batimentPrefab;
@@ -72,12 +72,9 @@ public class BuildingManager : MonoBehaviour
         float canvasWidth = canvasRect.width * canvas.scaleFactor;
         float canvasHeight = canvasRect.height * canvas.scaleFactor;
 
-        Debug.Log("mousePosition.x - buildingWidth/2 " + (mousePosition.x - buildingWidth/2) + " > canvasWidth/2 - mapWidth/2 " + (canvasWidth/2 - mapWidth/2));
-
         if(mousePosition.x - buildingWidth/2 > canvasWidth/2 - mapWidth/2 && mousePosition.x + buildingWidth/2 < canvasWidth/2 + mapWidth/2 && mousePosition.y - buildingHeight/2 > canvasHeight/2 - mapHeight/2 && mousePosition.y + buildingHeight/2 < canvasHeight/2 + mapHeight/2){
             return true;
         }
-        Debug.Log("Image not in map");
         return  false;
     }
 }

@@ -8,8 +8,8 @@ public static class GameHandler{
         string json = File.ReadAllText(filePath);
         DefaultSave = JsonUtility.FromJson<SaveData>(json);
     }
-    public static void SelectSaveData(SaveData saveData){
-        CurrentSave = saveData;
+    public static void SelectSaveData(string filePath){
+        CurrentSave = JsonUtility.FromJson<SaveData>(File.ReadAllText(filePath));
     }
     public static SaveData GetSaveData(){
         if(CurrentSave == null)

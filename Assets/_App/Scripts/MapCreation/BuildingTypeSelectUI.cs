@@ -8,6 +8,8 @@ public class BuildingTypeSelectUI : MonoBehaviour
     [SerializeField] private List<BuildingTypeSO> buildingTypeSOList;
     [SerializeField] private BuildingManager buildingManager;
 
+    [SerializeField] private Canvas canvas;
+
     private Dictionary<BuildingTypeSO, Transform> buildingTypeDictionary;
 
     private void Awake()
@@ -15,6 +17,10 @@ public class BuildingTypeSelectUI : MonoBehaviour
         //créer un bouton pour chaque type de batiment
         Transform buildingButtonTemplate = transform.Find("BuildingButtonTemplate");
         buildingButtonTemplate.gameObject.SetActive(false);
+
+        Rect buildinButtonrect = buildingButtonTemplate.GetComponent<RectTransform>().rect;
+
+        float height = buildinButtonrect.height*canvas.scaleFactor;
 
         buildingTypeDictionary = new Dictionary<BuildingTypeSO, Transform>();
 
@@ -24,7 +30,7 @@ public class BuildingTypeSelectUI : MonoBehaviour
             Transform buildingBtnTransform = Instantiate(buildingButtonTemplate, transform);
             buildingBtnTransform.gameObject.SetActive(true);
 
-            buildingBtnTransform.GetComponent<RectTransform>().anchoredPosition += new Vector2(index * 110, 0);
+            buildingBtnTransform.GetComponent<RectTransform>().anchoredPosition += new Vector2(0, (float)(index * (height*1.25)));
             buildingBtnTransform.Find("buttonImage").GetComponent<Image>().sprite = buildingTypeSO.sprite;
 
             buildingBtnTransform.GetComponent<Button>().onClick.AddListener(() =>

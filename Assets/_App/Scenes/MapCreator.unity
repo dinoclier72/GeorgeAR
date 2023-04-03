@@ -1038,6 +1038,7 @@ GameObject:
   - component: {fileID: 1061386875}
   - component: {fileID: 1061386874}
   - component: {fileID: 1061386876}
+  - component: {fileID: 1061386877}
   m_Layer: 0
   m_Name: GameHandler
   m_TagString: Untagged
@@ -1093,6 +1094,25 @@ MonoBehaviour:
   parent: {fileID: 749758765}
   inputField: {fileID: 2089188899}
   saveButton: {fileID: 342496789}
+  canvas: {fileID: 1647155397}
+--- !u!114 &1061386877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1061386873}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3c12d32aedf385419c3d52644384a51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activeBuildingType: {fileID: 11400000, guid: 35e527cb003d1d94c8b7f89c914c5423, type: 2}
+  parentObject: {fileID: 749758765}
+  buildingImage: {fileID: 5968813091461292758, guid: fa6486698408a5f42801f1f30981dd75,
+    type: 3}
+  map: {fileID: 1133018207}
+  canvas: {fileID: 1647155397}
 --- !u!1 &1133018205
 GameObject:
   m_ObjectHideFlags: 0
@@ -1176,12 +1196,82 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1647155398}
     m_Modifications:
+    - target: {fileID: 8423574844922250628, guid: 83a0d9c0d68e5c64792a4b2df4924529,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 75
+      objectReference: {fileID: 0}
+    - target: {fileID: 8423574844922250628, guid: 83a0d9c0d68e5c64792a4b2df4924529,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 75
+      objectReference: {fileID: 0}
     - target: {fileID: 8423574844943477624, guid: 83a0d9c0d68e5c64792a4b2df4924529,
         type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 6e59e37648f9d9b4385b4e45f52b8023,
         type: 3}
+    - target: {fileID: 8423574844943477625, guid: 83a0d9c0d68e5c64792a4b2df4924529,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8423574844943477625, guid: 83a0d9c0d68e5c64792a4b2df4924529,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8423574844943477625, guid: 83a0d9c0d68e5c64792a4b2df4924529,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8423574844943477625, guid: 83a0d9c0d68e5c64792a4b2df4924529,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8423574844943477625, guid: 83a0d9c0d68e5c64792a4b2df4924529,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8423574844943477625, guid: 83a0d9c0d68e5c64792a4b2df4924529,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8423574845156356473, guid: 83a0d9c0d68e5c64792a4b2df4924529,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8423574845156356473, guid: 83a0d9c0d68e5c64792a4b2df4924529,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8423574845156356473, guid: 83a0d9c0d68e5c64792a4b2df4924529,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8423574845156356473, guid: 83a0d9c0d68e5c64792a4b2df4924529,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8423574845156356473, guid: 83a0d9c0d68e5c64792a4b2df4924529,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8423574845156356473, guid: 83a0d9c0d68e5c64792a4b2df4924529,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: -20
+      objectReference: {fileID: 0}
     - target: {fileID: 8423574845465785024, guid: 83a0d9c0d68e5c64792a4b2df4924529,
         type: 3}
       propertyPath: m_Pivot.x
@@ -1312,6 +1402,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: buildingTypeSelectUI
       objectReference: {fileID: 0}
+    - target: {fileID: 8423574845465785027, guid: 83a0d9c0d68e5c64792a4b2df4924529,
+        type: 3}
+      propertyPath: canvas
+      value: 
+      objectReference: {fileID: 1647155397}
     - target: {fileID: 8423574845465785027, guid: 83a0d9c0d68e5c64792a4b2df4924529,
         type: 3}
       propertyPath: buildingManager
